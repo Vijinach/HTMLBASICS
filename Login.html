@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My First Page</title>
+        <!-- rel- refers to relation, href - reference file -->
+        <link rel="stylesheet" href="Login.css">
+    </head>
+    <body>
+        <!-- instead of using class name in each tag we can use the div tag - container -->
+    <div class="hello">
+        <h1 class="hello">Hello, How are you</h1>
+        <h2 class="hello">Hello, How are you</h2>
+        <h3 class="hello">Hello, How are you</h3>
+        <h4 class="hello">Hello, How are you</h4>
+        <h5 class="hello">Hello, How are you</h5>
+        <h6 class="world">Hello, How are you</h6>
+    </div>
+        <!-- same as head tag but it is not bold and it is normal size -->
+        <label>Hello, How are you</label> 
+        <!-- same as label tag but it reduce the space and appear in same line -->
+        <span>Hello, How are you</span>
+        <!-- To break the para we can use<br/> break tag -->
+        <p>Same as label tag but it reduce the space and appear in same line. <br/>Same as label tag but it reduce the space and appear in same line</p>
+        <input type="text" placeholder="Enter your name" id="email"/>
+        <input type="text" placeholder="Enter your password" id="password"/>
+        <button onclick="handlesubmit()">Submit</button>
+
+        <script>
+            function handlesubmit(){
+                let a = document.getElementById("email").value
+                let b = document.getElementById("password").value
+                let oldmail = localStorage.getItem("Email")
+                let oldpassword = localStorage.getItem("Password")
+            
+                if(a === '' || b === ''){
+                    alert("Please fill the required fields")
+                }
+                else{
+                    localStorage.setItem("Email", a)
+                    localStorage.setItem("Password", b)
+                }
+                if(a === oldmail || b === oldpassword){
+                alert("Login successful")
+                window.location.href = "Signup.html"
+                }else{
+                alert("Email or Password is mismatch")
+                window.location.href = "Signup.html" 
+                    <!-- instead of using a and href tag in body -->
+            }
+            } 
+        </script>
+    </body>
+</html>

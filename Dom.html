@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Document Page</title>
+    </head>
+    <body>
+        <!-- to hide the text -->
+        <h1 id="hi" onclick="hidetext()">Click Me</h1>
+
+        <!-- to chane the text -->
+        <h1 id="hello" onclick="changetext()">Click Me</h1>
+
+        <!-- when you click the button it should show the image -->
+        <button onclick="showimage()">Click Here</button>
+        <img src="./Images/image.jpg" id="img" style="display: none;"/>
+
+        <!-- when you click button hide content and reverse like hide and show -->
+        <h1 id="text">Show</h1>
+        <button onclick="toggletext()">Hide/Show</button><br/><br/>
+
+        <!-- the data given in the box it showed in list -->
+        <input type="text" id="iteminput" placeholder="Add Item"/>
+        <button onclick="additem()">Add Item</button>
+        <ul id="itemList"></ul>
+
+        <!-- to check the given email is valid or not using regex concept -->
+        <input type="email" id="mail" placeholder="Enter your Email"/>
+        <button onclick="validateemail()">Submit</button>
+        <!-- display none is used for not showing in the page unless we use it -->
+        <p id="error" style="color: red; display:none">Invalid Email</p><br/><br/>
+
+        <!-- to check the given email and password is valid or not using regex concept -->
+        <input type="email" id="email" placeholder="Enter your Email"/>
+        <input type="password" id="password" placeholder="Enter your Password"/>
+        <p id="emailerror" style="color: red; display:none">Invalid Email</p>
+        <p id="passworderror" style="color: red; display:none">Invalid Password</p>
+        <button onclick="validate()">Submit</button>
+        <br/><br/>
+
+        <!-- To count the words in the text area we use oninput because we are typing the input there-->
+        <textarea id="bio" placeholder="Enter your text" oninput="charcount()"></textarea>
+        <p id="charcount">0/100</p>
+
+        <!-- Colorpicker in this we will use onchange event -->
+        <input type="color" id="colorpicker" onchange="changecolor()"/>
+        <div id="box" style="height: 100px; width: 100px; background: lightgray;margin-top:2%"></div>
+
+        <!-- onmouseover and onmouseout event this is the keyword to use-->
+        <h1 onmouseover="this.style.color='red'" onmouseout="this.style.color='blue'">Hello, How are you?</h1>
+
+        <!-- onmouseover and onmouseout using div function in colorpicker -->
+        <input type="color" id="color" onmouseover="overcolor()" onmouseout="resetcolor()"/>
+        <div id="model" style="height: 100px; width: 100px; background: lightgray;margin-top:2%"></div>
+        <script>
+            function hidetext(){
+                document.getElementById("hi").style.display="none"; 
+            }
+            function changetext(){
+                document.getElementById("hello").innerHTML="Oops you clicked me"; 
+            }
+            function showimage(){
+                document.getElementById("img").style.display="block";
+            }
+            let ishidden = false;
+            function toggletext(){
+                document.getElementById("text").style.display = ishidden ? "block":"none";
+                ishidden = !ishidden;
+            }
+            function additem(){
+                const input = document.getElementById("iteminput");
+                const li = document.createElement("li");
+                li.textContent = input.value
+                <!-- appendchild used to add the element in the box already given -->
+                document.getElementById("itemList").appendChild(li);
+                input.value="";
+            }
+            function validateemail(){
+                const email = document.getElementById("mail").value.trim();
+                const error = document.getElementById("error")
+                const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                if(regex.test(email)){
+                    error.style.display="none";
+                    alert("Valid Email");
+                }
+                else{
+                    error.style.display="block";
+                }
+            }
+            function validate(){
+                const email = document.getElementById("email").value.trim();
+                const password = document.getElementById("password").value.trim();
+                const emailerror = document.getElementById("emailerror");
+                const passworderror = document.getElementById("passworderror");
+                const emailregex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                const passwordregex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+                let isValid = true;
+                if(emailregex.test(email)){
+                    emailerror.style.display="none";
+                    alert("Valid Email");
+                }
+                else{
+                    emailerror.style.display="block";
+                    isValid = false;
+                }
+                if(passwordregex.test(password)){
+                    passworderror.style.display="none";
+                    alert("Valid Password");
+                }
+                else{
+                    passworderror.style.display="block";
+                    isValid = false;
+                }
+                if(isValid){
+                    alert("valid email and password");
+                }
+            }
+            function charcount(){
+                const bio = document.getElementById("bio").value.length;
+                document.getElementById("charcount").innerText = `${bio}/100 characters`;
+            }
+            function changecolor(){
+                const color = document.getElementById("colorpicker").value;
+                document.getElementById("box").style.backgroundColor = color;
+            }
+            const defaultcolor = "grey";
+            function overcolor(){
+                const color = document.getElementById("color").value;
+                document.getElementById("model").style.backgroundColor = color;
+            }
+            function resetcolor(){
+                document.getElementById("model").style.backgroundColor = defaultcolor;
+            }
+        </script>
+    </body>
+</html>

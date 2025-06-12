@@ -1,0 +1,45 @@
+table, tr{
+    height:40px;
+    width: 400px;
+}
+table, th, td{
+    border: 2px solid black;
+    /* to remove 2  line border in table */
+    border-collapse: collapse;
+}
+th{
+    background-color: brown;
+    text-align: center;
+}
+td{
+    background-color: bisque;
+    text-align: center;
+}
+.main{
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color:aliceblue;
+    height: 170px;
+    width: 280px;
+    margin-left: 400px;
+    margin-top: 10px;
+}
+.text{
+    margin-top: 10%;
+    margin-left: 5%;
+}
+.text-label {
+    font-size: 20px;
+    font-family: cursive;
+}
+.text-input {
+    margin: 10px;
+    padding: 10px;
+}
+.btn button {
+    padding: 10px;
+    background-color: aquamarine;
+    border-radius: 10px;
+    margin-left: 35%;
+    margin-top: 5%;
+}
