@@ -6,3 +6,34 @@
         opacity: 1;
     }
 }
+@keyframes slide{
+    0%{
+        left: 100px;
+        /* to rotate the box we can use transform */
+        transform: rotate(0deg);
+        /* to change background-color according to opacity */
+        background-color: antiquewhite;
+    }
+    50%{
+        left: 200px;
+        transform: rotate(180deg);
+        background-color: aquamarine;
+    }
+    100%{
+        left: 300px;
+        transform: rotate(360deg);
+        background-color: bisque;
+    }
+}
+
+.hello{
+    animation: fadein ease-in-out 5s;
+}
+.box{
+    width: 200px;
+    height: 200px;
+    background-color: aqua;
+/* animation used to move the box, position - to move the box, infinte - to move the box continuously without stopping, alternate - to move to and fro(move from first to last then last to first) */
+    animation: slide 5s ease-in-out infinite alternate;
+    position: relative;
+}
