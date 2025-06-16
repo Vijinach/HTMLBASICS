@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            EB Bill calculator
+        </title>
+    </head>
+    <body>
+        <h1>EB Bill Calculator</h1>
+        <input type="number" id="units"/>
+        <button type="submit" onclick="calculatebill()">Calculate</button>
+    </body>
+    <script>
+        function calculatebill(){
+        const unit = document.getElementById("units").value;
+            if(unit>100 && unit<=200){
+                const extraUnits = unit - 100;
+                const amount = extraUnits * 5;
+                alert("Need to pay amount: Rs. " + amount);
+            }else if(unit>200 && unit<=300){
+                const extraUnits = unit - 200;
+                const amt = extraUnits * 10;
+                alert("Need to pay amount: Rs. " + amt);
+            }else if(unit>300){
+                const extraUnits = unit - 300;
+                const amt = extraUnits * 15;
+                alert("Need to pay amount: Rs. " + amt);
+            }else{
+                alert("No need to pay amount");
+            }
+        }
+    </script>
+</html>
