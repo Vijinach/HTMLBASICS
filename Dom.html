@@ -4,6 +4,11 @@
         <title>Document Page</title>
     </head>
     <body>
+        <!-- when click the button that text should show which is given by user -->
+        <!-- textContent and inner html both are same it is used to add text manually -->
+        <h1 id="show"></h1>
+        <button type="submit" onclick="showcontent()">Show</button>
+
         <!-- to hide the text -->
         <h1 id="hi" onclick="hidetext()">Click Me</h1>
 
@@ -52,6 +57,9 @@
         <input type="color" id="color" onmouseover="overcolor()" onmouseout="resetcolor()"/>
         <div id="model" style="height: 100px; width: 100px; background: lightgray;margin-top:2%"></div>
         <script>
+            function showcontent(){
+                document.getElementById("show").textContent = "Hello World"
+            }
             function hidetext(){
                 document.getElementById("hi").style.display="none"; 
             }
