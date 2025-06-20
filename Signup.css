@@ -5,6 +5,10 @@
     background-color: azure;
     border: 1px solid black;
 }
+:hover label{
+    background-color:aquamarine;
+    text-decoration:underline;
+}
 .wrap1{
     margin-left: 10px;
     margin-top: 10px;
